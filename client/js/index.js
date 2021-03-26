@@ -1,7 +1,19 @@
-var game = new Phaser.Game(300, 300, Phaser.AUTO, '', {preload, create, update,});
+import StartMenu from './scenes/StartMenu.js';
+import Game from './scenes/Game.js';
+import GameOver from './scenes/GameOver.js';
 
-function preload() {}
+var game = new Phaser.Game({
+    width: 1200, 
+    height: 600,
+    type: Phaser.AUTO,
+    physics: {
+        default: 'arcade',
+        arcade: {
+            gravity: { y: 300 },
+            debug: false
+        }
+    },
+    scene: [StartMenu, Game, GameOver]
+});
 
-function create() {}
-
-function update() {}
+export default game;

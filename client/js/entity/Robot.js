@@ -36,15 +36,14 @@ class Robot extends Phaser.Physics.Arcade.Sprite {
         });
         
 
-        this.body.world.on('worldbounds', (body, up) => {
-            if(body.gameObject instanceof Robot && body == this.body)
+        this.body.world.on('worldbounds', (body, up, down, left, right) => {
+            if(body.gameObject instanceof Robot && body == this.body && down)
             {
                 console.log('da');
                 body.gameObject.lives--;
                 body.gameObject.setPosition(400, 200);
             }   
-            else if(body.gameObject == undefined){
-                console.log(body);
+            else if (body.gameObject.texture.key.includes('bullet')){
                 body.gameObject.destroy();
             }
         }, this);

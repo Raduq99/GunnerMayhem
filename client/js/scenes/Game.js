@@ -24,7 +24,7 @@ class Game extends Phaser.Scene {
     create() {
         this.add.image(300, 300, 'background');
         const platforms = this.physics.add.staticGroup();
-        platforms.create(600, this.game.scale.height - 100, 'ground').setScale(25, 1.5).refreshBody();
+        platforms.create(600, this.game.scale.height - 100, 'ground').setScale(23, 1.5).refreshBody();
 
         this.robot = new Robot(this, 400, 200, 'robot');
         this.enemy = new Robot(this, 800, 200, 'enemy');
